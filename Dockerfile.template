@@ -112,7 +112,7 @@ RUN set -ex; \
 # postinst script creates a datadir, so avoid creating it by faking its existance.
 	mkdir -p /var/lib/mysql/mysql ; touch /var/lib/mysql/mysql/user.frm ; \
 # mariadb-backup is installed at the same time so that `mysql-common` is only installed once from just mariadb repos
-	apt-get install -y --no-install-recommends mariadb-server="$MARIADB_VERSION" mariadb-backup socat \
+	apt-get install -y --no-install-recommends mariadb-server="$MARIADB_VERSION" mariadb-backup="$MARIADB_VERSION" socat \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
 # purge and re-create /var/lib/mysql with appropriate ownership
